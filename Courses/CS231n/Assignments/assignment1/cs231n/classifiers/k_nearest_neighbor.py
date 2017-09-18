@@ -1,5 +1,5 @@
 import numpy as np
-from past.builtins import xrange
+#from past.builtins import xrange
 
 
 class KNearestNeighbor(object):
@@ -65,15 +65,15 @@ class KNearestNeighbor(object):
     num_test = X.shape[0]
     num_train = self.X_train.shape[0]
     dists = np.zeros((num_test, num_train))
-    for i in xrange(num_test):
-      for j in xrange(num_train):
+    for i in range(num_test):
+      for j in range(num_train):
         #####################################################################
         # TODO:                                                             #
         # Compute the l2 distance between the ith test point and the jth    #
         # training point, and store the result in dists[i, j]. You should   #
         # not use a loop over dimension.                                    #
         #####################################################################
-        pass
+        dists[i, j] = np.sqrt(np.sum((X[i] - self.X_train[j])**2))
         #####################################################################
         #                       END OF YOUR CODE                            #
         #####################################################################
@@ -89,7 +89,7 @@ class KNearestNeighbor(object):
     num_test = X.shape[0]
     num_train = self.X_train.shape[0]
     dists = np.zeros((num_test, num_train))
-    for i in xrange(num_test):
+    for i in range(num_test):
       #######################################################################
       # TODO:                                                               #
       # Compute the l2 distance between the ith test point and all training #
@@ -144,7 +144,7 @@ class KNearestNeighbor(object):
     """
     num_test = dists.shape[0]
     y_pred = np.zeros(num_test)
-    for i in xrange(num_test):
+    for i in range(num_test):
       # A list of length k storing the labels of the k nearest neighbors to
       # the ith test point.
       closest_y = []
